@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "builder"
+version = "0.1.0"
+description = ""
+authors = ["Fakeapate <imboden.samuel@protonmail.ch>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+make = "builder.make:cli(auto_envvar_prefix='BUILDER')"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jsonpatch = "^1.33"
+click = "^8.1.6"
+load-dotenv = "^0.1.0"
+json5 = "^0.9.14"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

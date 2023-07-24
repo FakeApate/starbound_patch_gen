@@ -4,18 +4,17 @@ import shutil
 import subprocess
 
 import click
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from builder.helpers import (copy_file, create_patch_file, default_from_context,
-                     set_unpacker_packer_paths)
+                             set_unpacker_packer_paths)
 
-load_dotenv()
+load_dotenv(dotenv_path=find_dotenv(usecwd=True))
 
 folderOptionType = click.Path(
     exists=True, file_okay=False, dir_okay=True, resolve_path=True)
 
-
 @click.group(chain=True)
-@click.option('--starbound', type=folderOptionType, help="Path to Starbound directory", required=True)
+@click.option('--starbound', type=folderOptionType, help="Path to Starbound directory", default=lambda: os.environ.get("BUILDER_STARBOUND", "NOT_SET"))
 @click.option('--modname', type=click.STRING, default="modcontent", help="Name of the mod, used for the packed mod file")
 @click.option('--build_dir', type=click.Path(dir_okay=True, file_okay=False), default="out/", help="Build directory")
 @click.pass_context

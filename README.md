@@ -31,7 +31,7 @@ BUILDER_BUILD_DIR="PathToBuildDir"
 Before building your mod, you need to unpack the original assets from the packed.pak file. Use the `prepare` command to do this:
 
 ```bash
-starbound-patch-gen prepare --destination /path/to/unpack/assets
+builder prepare --destination /path/to/unpack/assets
 ```
 
 ### Build the Mod
@@ -39,7 +39,7 @@ starbound-patch-gen prepare --destination /path/to/unpack/assets
 To build your mod, place your modified assets in the `_modAssets` folder and use the `build` command:
 
 ```bash
-starbound-patch-gen build --source /path/to/unpacked/assets --mod _modAssets/
+builder build --source /path/to/unpacked/assets --mod _modAssets/
 ```
 
 The tool will generate patch files for the modified configuration files and copy other assets to the build directory.
@@ -49,7 +49,7 @@ The tool will generate patch files for the modified configuration files and copy
 Once your mod is built, you can pack it into a single mod file using the `pack` command:
 
 ```bash
-starbound-patch-gen pack -o /path/to/output/modfile.pak
+builder pack -o /path/to/output/modfile.pak
 ```
 
 Use the `--overwrite` flag to overwrite an existing output file.

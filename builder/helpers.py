@@ -3,7 +3,7 @@ import shutil
 import jsonpatch
 import json5 as json
 import click
-from . import config
+from builder import config
 import platform
 
 
@@ -28,9 +28,9 @@ def copy_file(src, dst):
 
 def default_from_context(default_name):
     class OptionDefaultFromContext(click.Option):
-        def get_default(self, ctx):
+        def get_default(self, ctx, call):
             self.default = ctx.obj[default_name]
-            return super(OptionDefaultFromContext, self).get_default(ctx)
+            return super(OptionDefaultFromContext, self).get_default(ctx, call)
     return OptionDefaultFromContext
 
 

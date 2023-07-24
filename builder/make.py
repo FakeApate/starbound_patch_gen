@@ -5,7 +5,7 @@ import subprocess
 
 import click
 from dotenv import load_dotenv
-from .helpers import (copy_file, create_patch_file, default_from_context,
+from builder.helpers import (copy_file, create_patch_file, default_from_context,
                      set_unpacker_packer_paths)
 
 load_dotenv()

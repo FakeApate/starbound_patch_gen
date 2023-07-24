@@ -173,3 +173,5 @@ cython_debug/
 *.vsix
 
 *.pak
+
+.vscode/launch.json

@@ -28,7 +28,7 @@ def copy_file(src, dst):
 
 def default_from_context(default_name):
     class OptionDefaultFromContext(click.Option):
-        def get_default(self, ctx, call):
+        def get_default(self, ctx: any, call: bool = True):
             self.default = ctx.obj[default_name]
             return super(OptionDefaultFromContext, self).get_default(ctx, call)
     return OptionDefaultFromContext
